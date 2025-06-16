@@ -20,8 +20,8 @@ class TrendAgent(Agent):
             self.timer += 1
 
     def move(self):
-        dx = random.uniform(-3, 3)
-        dy = random.uniform(-3, 3)
+        dx = random.uniform(-7, 7)
+        dy = random.uniform(-7, 7)
         x, y = self.pos
         width, height = self.model.space.width, self.model.space.height
         self.pos = ((x + dx) % width, (y + dy) % height)
@@ -61,7 +61,7 @@ class TrendAgent(Agent):
                     self.memory.append(word)
             if self.timer >= 5:
                 if self.memory != []:
-                    del self.memory[-1]
+                    del self.memory[0]
                     self.timer = 0
         # 固執型
         # はじめの衝突時のみ先頭単語だけを記憶する
