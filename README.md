@@ -1,1 +1,0 @@
-# bazzword_simulater
