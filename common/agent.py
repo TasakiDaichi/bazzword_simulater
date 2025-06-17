@@ -37,7 +37,7 @@ class TrendAgent(Agent):
         dist = (
             (self.pos[0] - other.pos[0]) ** 2 + (self.pos[1] - other.pos[1]) ** 2
         ) ** 0.5
-        return dist < 10  # 半径5ずつ想定で10以内を衝突とする
+        return dist < 15
 
     def interact(self, other):
         if not other.memory:
