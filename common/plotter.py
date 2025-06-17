@@ -1,8 +1,9 @@
 import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.use('Agg')
 
 class Plotter:
     def __init__(self, initial_words):
-        plt.ion()
         self.fig, self.ax = plt.subplots()
         self.word_history = {word: [] for word in initial_words}
 
@@ -25,4 +26,3 @@ class Plotter:
 
     def close(self):
         plt.ioff()
-        plt.show()

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>シミュレーション設定</title>
+</head>
+
+<body>
+    <h1>エージェント設定</h1>
+    <form method="post">
+        一般エージェント数: <input type="number" name="general_agents" value="20"><br>
+        固執型エージェント数: <input type="number" name="persistent_agents" value="20"><br>
+        忘却型エージェント数: <input type="number" name="forgetful_agents" value="20"><br>
+        逆張り型エージェント数: <input type="number" name="contrarian_agents" value="40"><br>
+        大衆迎合型エージェント数: <input type="number" name="mass_follower_agents" value="20"><br>
+        初期単語（カンマ区切り）: <input type="text" name="initial_words" value="asai-,uragane,kaiwai,hutehodo"><br>
+        各初期単語のエージェント数: <input type="number" name="initial_count" value="5"><br>
+        <input type="submit" value="シミュレーション開始">
+    </form>
+</body>
+
+</html>

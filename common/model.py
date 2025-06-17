@@ -1,7 +1,7 @@
 from mesa import Model
 from mesa.space import ContinuousSpace
 from collections import defaultdict
-from agent import TrendAgent
+from common.agent import TrendAgent
 import random
 
 
