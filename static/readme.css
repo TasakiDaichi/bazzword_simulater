@@ -1,0 +1,33 @@
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.explain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.explain p {
+    padding: 8px;
+    background-color: aliceblue;
+    border: thick double #32a1ce;
+    border-radius: 8px;
+}
+
+.agent-explain-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.agent-explain {
+    display: inline-block;
+    text-align: center;
+}
+
+.agent-explain h3 {
+    font-weight: 400;
+}

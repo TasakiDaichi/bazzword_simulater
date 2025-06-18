@@ -6,7 +6,7 @@ SETTINGS = {
         "persistent": (0, 0, 255),
         "forgetful": (100, 100, 100),
         "contrarian": (128, 0, 255),
-        "mass_follower": (0, 0, 0),
+        "mass_follower": (255, 255, 0),
     },
     "general_agents": 20,
     "persistent_agents": 20,

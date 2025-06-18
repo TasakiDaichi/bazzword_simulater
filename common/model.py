@@ -38,6 +38,9 @@ class TrendModel(Model):
 
         for _ in range(self.config["contrarian_agents"]):
             self.agent_process("contrarian")
+        
+        for _ in range(self.config["mass_follower_agents"]):
+            self.agent_process("mass_follower")
 
     def agent_process(self, agent_type):
         color = self.config["agent_colors"][agent_type]
