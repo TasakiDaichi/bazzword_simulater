@@ -1,3 +1,5 @@
 mesa
 pygame
 matplotlib
+flask
+flask_cors
