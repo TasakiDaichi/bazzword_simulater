@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session, s
 from flask_cors import CORS, cross_origin
 import os
 from views.simu_threads import start_simulation_thread
+from views.share_config import simulation_config
 
 # run.pyにこのviewファイルを認識させるために必要
 home_blueprint = Blueprint("Home", __name__, url_prefix="/")
@@ -16,8 +17,16 @@ def form():
         session["forgetful_agents"] = int(request.form["forgetful_agents"])
         session["contrarian_agents"] = int(request.form["contrarian_agents"])
         session["mass_follower_agents"] = int(request.form["mass_follower_agents"])
-        session["initial_words"] = request.form["initial_words"]  # カンマ区切り
-        session["initial_count"] = int(request.form["initial_count"])
+        
+        # 初期単語ごとの人数を辞書でまとめる
+        initial_agents = {}
+        global simulation_config
+        for i in range(1, 5):
+            word = request.form.get(f"word{i}")
+            count = request.form.get(f"count{i}")
+            if word and count:
+                initial_agents[word] = int(count)
+        simulation_config["initial_agents"] = initial_agents
         return redirect(url_for("Home.simu"))
     return render_template("form.html")
 

@@ -5,6 +5,9 @@ import pygame
 from common.config import SETTINGS
 from common.model import TrendModel
 from common.plotter import Plotter
+from views.share_config import simulation_config
+from flask import session, has_request_context
+import os
 
 def simulation_loop():
     pygame.init()
@@ -12,7 +15,18 @@ def simulation_loop():
     pygame.display.set_caption("流行語シミュレータ")
     clock = pygame.time.Clock()
 
-    model = TrendModel(SETTINGS)
+    initial_agents = SETTINGS.get("initial_agents", {})
+    try:
+        if has_request_context() and "initial_agents" in session:
+            initial_agents = session["initial_agents"]
+    except Exception:
+        pass
+
+    config = dict(SETTINGS)
+    if "initial_agents" in simulation_config:
+        config["initial_agents"] = simulation_config["initial_agents"]
+
+    model = TrendModel(config)
     plot = Plotter(model.word_counts.keys())
     font = pygame.font.SysFont(None, 24)
 
@@ -44,12 +58,12 @@ def simulation_loop():
         plot.draw()
 
         pygame.display.flip()
-        clock.tick(60)
+        clock.tick(30)
 
-        # 0.5秒ごとにグラフ画像を保存
+        # 1秒ごとにグラフ画像を保存
         now = time.time()
-        if now - last_save_time > 1.5:
-            plot.fig.savefig("static/graph.png")
+        if now - last_save_time > 1.0:
+            plot.fig.savefig(os.path.join("static", "graph.png"))
             last_save_time = now
 
     pygame.quit()
