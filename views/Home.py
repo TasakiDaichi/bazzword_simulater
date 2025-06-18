@@ -41,3 +41,7 @@ def simu():
 @home_blueprint.route('/static/<path:filename>')
 def static_files(filename):
     return send_from_directory(os.path.join(home_blueprint.root_path, 'static'), filename)
+
+@home_blueprint.route("/readme")
+def readme():
+    return  render_template("readme.html")
