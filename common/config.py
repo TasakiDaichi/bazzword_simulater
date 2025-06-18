@@ -11,7 +11,7 @@ SETTINGS = {
     "general_agents": 20,
     "persistent_agents": 20,
     "forgetful_agents": 20,
-    "contrarian_agents": 40,
+    "contrarian_agents": 20,
     "mass_follower_agents": 20,
     "width": 800,
     "height": 800,
